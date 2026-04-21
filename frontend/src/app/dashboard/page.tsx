@@ -88,9 +88,9 @@ export default function DashboardPage() {
   }, [fetchTasks]);
 
   // Handlers
-  const handleCreateTask = async (data: CreateTaskData) => {
+  const handleCreateTask = async (data: CreateTaskData | UpdateTaskData) => {
     try {
-      await api.createTask(data);
+      await api.createTask(data as CreateTaskData);
       showToast("Task created successfully!", "success");
       setShowCreateModal(false);
       fetchTasks();
@@ -100,9 +100,9 @@ export default function DashboardPage() {
     }
   };
 
-  const handleUpdateTask = async (id: string, data: UpdateTaskData) => {
+  const handleUpdateTask = async (id: string, data: CreateTaskData | UpdateTaskData) => {
     try {
-      await api.updateTask(id, data);
+      await api.updateTask(id, data as UpdateTaskData);
       showToast("Task updated successfully!", "success");
       setEditingTask(null);
       fetchTasks();
