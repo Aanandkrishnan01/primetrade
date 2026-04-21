@@ -441,7 +441,7 @@ export default function DashboardPage() {
 interface TaskFormModalProps {
   title: string;
   initialData?: Task;
-  onSubmit: (data: CreateTaskData | UpdateTaskData) => Promise<void>;
+  onSubmit: (data: any) => Promise<void>;
   onClose: () => void;
 }
 
